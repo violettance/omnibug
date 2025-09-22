@@ -457,9 +457,9 @@ window.Omnibug = (() => {
                 }
                 row.push(request.request.url.replace(/"/g, `\\"`));
                 if (typeof request.request.postData === "object" && request.request.postData) {
-                    row.push(JSON.stringify(request.request.postData).replace(/"/g, '""'));
+                    row.push(JSON.stringify(request.request.postData).replace(/"/g, "\"\""));
                 } else if(typeof request.request.postData === "string") {
-                    row.push(request.request.postData.replace(/"/g, '""'));
+                    row.push(request.request.postData.replace(/"/g, "\"\""));
                 } else {
                     row.push("");
                 }
@@ -776,17 +776,17 @@ window.Omnibug = (() => {
                     "title": "This request was not successful",
                 }),
                 pingHelpLink = createElement("a", {
-                "attributes": {
-                    "target": "_blank",
-                    "href": "https://omnibug.io/help/post-data-error?utm_source=omnibug&utm_medium=##BROWSER##&utm_campaign=post-data-warning"
-                },
-                "text": "Learn more."
-            }),
-            pingWarning = createElement("div", {
-                "classes": ["toast", "toast-error"],
-                "text": "There was an error capturing the POST data. Some data points sent with the request may be missing in Omnibug. ",
-                "children": [pingHelpLink]
-            });
+                    "attributes": {
+                        "target": "_blank",
+                        "href": "https://omnibug.io/help/post-data-error?utm_source=omnibug&utm_medium=##BROWSER##&utm_campaign=post-data-warning"
+                    },
+                    "text": "Learn more."
+                }),
+                pingWarning = createElement("div", {
+                    "classes": ["toast", "toast-error"],
+                    "text": "There was an error capturing the POST data. Some data points sent with the request may be missing in Omnibug. ",
+                    "children": [pingHelpLink]
+                });
             body.appendChild(pingWarning);
         }
 

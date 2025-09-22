@@ -31,7 +31,7 @@
                     }
                 });
                 port.onDisconnect.addListener(connectPort);
-            }
+            };
             connectPort();
 
             /**

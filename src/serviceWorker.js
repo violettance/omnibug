@@ -28,7 +28,7 @@ const forceReconnect = (port) => {
     console.log(`Reconnecting port ${port.name} to stay alive`);
     deleteTimer(port);
     port.disconnect();
-}
+};
 const deleteTimer = (port) => {
     console.log(`Port ${port.name} disconnected`);
     if (port._timer) {
@@ -36,7 +36,7 @@ const deleteTimer = (port) => {
         delete port._timer;
         delete tabs[port.name];
     }
-}
+};
 var providerPattern;
 
 /**
@@ -77,7 +77,7 @@ chrome.runtime.onConnect.addListener((port) => {
                 chrome.runtime.openOptionsPage();
             }
         });
-    })
+    });
 });
 
 /**
@@ -87,7 +87,7 @@ chrome.webRequest.onBeforeRequest.addListener(
     (details) => {
 
         // Ignore any requests for windows where devtools isn't open, or options requests
-       if (!validProviderRequest(details)) { return; }
+        if (!validProviderRequest(details)) { return; }
 
         let data = {
             "request": {
